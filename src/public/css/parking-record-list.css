@@ -1,0 +1,114 @@
+h1 {
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav .btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: 0.2em solid gray;
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: rgb(96, 96, 32);
+}
+
+.nav .btn:hover {
+  color: rgb(96, 96, 32);
+  background-color: rgb(255, 255, 255);
+}
+
+h2 {
+  text-align: center;
+}
+
+.content {
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.records {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 50em;
+  margin: 2em auto;
+}
+
+.records a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.record {
+  width: 10em;
+  height: 11em;
+  margin: 1em 1em;
+  background-color: rgb(150, 150, 150);
+  border-radius: 1em;
+  border: 0.1em solid gray;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.record:hover {
+  box-shadow: 0 0 0.25em white;
+}
+
+.record .title {
+  text-align: center;
+  padding: 0.35em 0;
+  background-color: rgba(255, 255, 255);
+  vertical-align: middle;
+}
+
+.record .title .no {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 0.1em 0.5em;
+  border-radius: 0.5em;
+}
+
+.record .title .no .status {
+  display: inline-block;
+  border-radius: 1em;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+}
+
+.record .timestamp {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8em;
+  padding: 0.35em 0;
+  background-color: rgba(255, 255, 255);
+}
+
+.record .status {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.record .status .img-car {
+  width: 2em;
+  height: 4.5em;
+}
+
+.record .status .chart {
+  width: 6em;
+  height: 6em;
+}

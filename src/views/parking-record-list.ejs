@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spots</title>
+    <link rel="stylesheet" href="/css/parking-record-list.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Smart Parking System</h1>
+    <hr>
+    <h2>All Parking Spots</h2>
+    <div class="content">
+        <div class="records">
+            <% records.forEach(function(record){ %>
+            <a href="/parking-record/spot?no=<%= record.no %>">
+                <div class="record">
+                    <div class="title">
+                        <% if(record.status == 0){ %>
+                        <div class="no">
+                            #<%= record.no %>
+                            <span class="status" style="background-color: rgba(64, 235, 128, 0.75);">available</span>
+                        </div>
+                        <% } else{ %>
+                        <div class="no">
+                            #<%= record.no %>
+                            <span class="status" style="background-color: rgba(255, 64, 128, 0.75);">occupied</span>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="status">
+                        <% if(record.status == 0){ %>
+                        <img class="img-car" src="/img/car_topview_trans.png" alt="car topview">
+                        <% } else{ %>
+                        <img class="img-car" src="/img/car_topview.png" alt="car topview">
+                        <% } %>
+                        <div class="chart">
+                            <canvas id="<%= 'chart-' + record.no %>">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="timestamp">
+                        <span> <%= dateFns.format(new Date(record.timestamp), "MM/dd/yyyy HH:mm:ss") %> </span>
+                    </div>
+                </div>
+            </a>
+            <% }); %>
+        </div>
+    </div>
+    <div class="nav">
+        <a href="/">
+            <div class="btn">
+                Go Home
+            </div>
+        </a>
+    </div>
+    <script>
+        var records = JSON.parse('<%- JSON.stringify(records) %>');
+        records.forEach(function (record) {
+            var availableTimeRatio = record.availableTime / record.totalTime;
+            var occupiedTimeRatio = record.occupiedTime / record.totalTime;
+
+            var ctx = document.getElementById('chart-' + record.no).getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Available', 'Occupied'],
+                    datasets: [{
+                        label: 'data',
+                        data: [availableTimeRatio, occupiedTimeRatio],
+                        backgroundColor: [
+                            'rgba(64, 235, 128, 0.75)',
+                            'rgba(255, 64, 128, 0.75)',
+                        ],
+                    }],
+                },
+                options: {
+                    plugins:{ 
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            enabled: true,
+                            usePointStyle: true,
+                            titleFontSize: 10,
+                            bodyFontSize: 10,
+                            callbacks: {
+                                title: function(tooltipItems, data) {
+                                    var i = tooltipItems[0].dataIndex;
+                                    if (i == 0) {
+                                        return 'available time';
+                                    } else {
+                                        return 'occupied time';
+                                    }
+                                },
+                                label: function(tooltipItems, data) {
+                                    var i = tooltipItems['dataIndex'];
+                                    if (i == 0) {
+                                        return ' ' + (availableTimeRatio * 100).toFixed(1) + '%';
+                                    } else {
+                                        return ' ' + (occupiedTimeRatio * 100).toFixed(1) + '%';
+                                    }
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+        });
+    </script>
+</body>
+</html>

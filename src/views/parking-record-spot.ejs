@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spots</title>
+    <link rel="stylesheet" href="/css/parking-record-spot.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Smart Parking System</h1>
+    <hr>
+    <h2>Parking Spot #<%= no %></h2>
+    <div class="content">
+        <table class="records">
+            <thead>
+                <tr>
+                    <th><span>From</span></th>
+                    <th><span>To</span></th>
+                    <th><span>Duration</span></th>
+                    <th><span>Status</span></th>
+                    <th><span>Rate</span></th>
+                    <th><span>Billing</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% records.forEach(function(record){ %>
+                <tr>
+                    <td><%= dateFns.format(new Date(record.timestamp), "MM/dd/yyyy HH:mm:ss") %></td>
+                    <td><%= dateFns.format(new Date(record.endTimestamp), "MM/dd/yyyy HH:mm:ss") %></td>
+                    <td><%= record.duration.toFixed(1) %> Hours</td>
+                    <% if(record.status == 1){ %>
+                    <td><div class="status" style="background-color: rgba(255, 64, 128, 0.75);">occupied</div></td>
+                    <td><%= record.rate %> €</td>
+                    <td><strong><%= record.billing.toFixed(2) %> €</strong></td>
+                    <% } else{ %>
+                    <td><div class="status" style="background-color: rgba(64, 235, 128, 0.75);">available</div></td>
+                    <td> - </td>
+                    <td> - </td>
+                    <% } %>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="total-billing">
+            <strong>Total Billing: </strong>
+            <strong><%= totalBilling.toFixed(2) %> €</strong>
+        </div>
+    </div>
+    <div class="nav">
+        <a href="/parking-record/list">
+            <div class="btn">
+                Go Back
+            </div>
+        </a>
+    </div>
+    <script>
+        var records = JSON.parse('<%- JSON.stringify(records) %>');
+    </script>
+</body>
+</html>

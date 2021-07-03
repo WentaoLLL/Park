@@ -1,0 +1,76 @@
+h1 {
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav .btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: 0.2em solid gray;
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: rgb(96, 96, 32);
+}
+
+.nav .btn:hover {
+  color: rgb(96, 96, 32);
+  background-color: rgb(255, 255, 255);
+}
+
+h2 {
+  text-align: center;
+}
+
+.content {
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  border-radius: 1em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.records {
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.records thead tr th {
+  height: 2.5em;
+}
+
+.records thead tr th span {
+  padding: 0.25em 1em;
+  border-radius: 1em;
+  border: 0.1em solid gray;
+}
+
+.records tbody tr td {
+  padding: 1em 1em;
+  text-align: center;
+}
+
+.records tbody tr td .status {
+  display: inline-block;
+  border-radius: 1em;
+  padding: 0.25em 0.5em;
+  font-size: 0.9em;
+}
+
+.total-billing {
+  font-size: 1.1em;
+  text-align: center;
+  margin: 0 auto 2em auto;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.75);
+}

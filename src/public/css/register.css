@@ -1,0 +1,76 @@
+h1 {
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav .btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: 0.2em solid gray;
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: rgb(96, 96, 32);
+}
+
+.nav .btn:hover {
+  color: rgb(96, 96, 32);
+  background-color: rgb(255, 255, 255);
+}
+
+.msg {
+  padding: 1em 0;
+  margin: 1em auto;
+  color: red;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 25em;
+  border-radius: 1em;
+}
+
+.content {
+  text-align: center;
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 1em auto;
+  padding: 1em;
+  width: 25em;
+  border-radius: 1em;
+}
+
+form .group {
+  padding: 0.5em 0;
+}
+
+form label {
+  margin-right: 1em;
+  font-weight: bold;
+  display: inline-block;
+  width: 6em;
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 10em;
+  padding: 0.25em 0.5em;
+}
+
+form input[type="submit"] {
+  font-size: 1.1em;
+  padding: 0.25em 1em;
+}

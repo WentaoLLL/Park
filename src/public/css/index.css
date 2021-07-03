@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav .btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em;
+  border: 0.2em solid gray;
+  border-radius: 0.5em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: rgb(96, 96, 32);
+}
+
+.nav .btn:hover {
+  color: rgb(96, 96, 32);
+  background-color: rgb(255, 255, 255);
+}
+
+.content {
+  text-align: center;
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.content p {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 30em;
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 1em;
+  overflow: hidden;
+}
