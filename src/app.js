@@ -31,4 +31,4 @@ const parkingRecordRoutes = require("./routes/parking-record");
 app.use("/user", userRoutes);
 app.use("/parking-record", parkingRecordRoutes);
 
-app.listen(3000, () => console.log("server is running at port 3000"));
+app.listen(4000, () => console.log("server is running at port 3000"));
